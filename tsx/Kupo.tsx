@@ -7,11 +7,11 @@ import { Icons, Iconss } from "../src/icons";
 const DATA = [
   {
     title: 'First Item',
-    imgUrl:require('../img/shouuhin/shouhinn01.png'),
+    imgUrl:require('../img/banner/banner0.jpg'),
   },
   {
     title: 'Second Item',
-    imgUrl:require('../img/banner/banner2.jpg'),
+    imgUrl:require('../img/banner/banner1.jpg'),
   },
   {
     title: 'Third Item',
@@ -48,8 +48,8 @@ function CoupounAll() {
               <Item title={item.title}  />
           <View style={{flexDirection:"row" ,alignItems:'center' ,marginStart:10}}>
             <View style={{width:70,height:40,alignItems:"center",justifyContent:'center'}}>
-              <Text style={{fontSize:24,fontWeight:'700'}}>$552</Text>
-                <View style={{position:'absolute',transform:[{rotateZ: '-30deg'}],width:60,height:3,backgroundColor:'red'}}></View>
+              <Text style={{fontSize:20,fontWeight:'700'}}>$552</Text>
+                <View style={{position:'absolute',transform:[{rotateZ: '-25deg'}],width:45,height:3,backgroundColor:'red'}}></View>
               </View>
               
               <View

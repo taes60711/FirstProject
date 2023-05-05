@@ -1,0 +1,4 @@
+/models
+amplify-codegen-temp/models
+
+src/models

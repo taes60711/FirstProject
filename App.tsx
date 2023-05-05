@@ -9,28 +9,20 @@ import { Home } from './tsx/Home';
 import { Menu } from './tsx/Menu';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Iconss,Icons } from './src/icons';
-import { Account } from './tsx/Account';
+import { Account } from './tsx/AccountSystem/Account';
 import { OrderPage } from './tsx/Order';
 import { PointPage } from './tsx/Point';
-
-
-
+import { SignUpPage } from './tsx/AccountSystem/SignUpPage';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
-
 const Drawer = createDrawerNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      {/* <Stack.Navigator initialRouteName="Home" >
-        <Stack.Screen name="Home" options={{headerShown:false}} component={Homemain} />
-        <Stack.Screen name="Kk" component={Account} />  
-        <Stack.Screen name="Kupo" component={Kupo} />  
-      </Stack.Navigator>  */}
+
       <Drawer.Navigator  initialRouteName="Stacktest">
-        {/* <Drawer.Screen name="Home" component={Homemain} /> */}
         <Drawer.Screen name="ホーム" options={{headerShown:false}} component={Stacktest} />
         <Drawer.Screen name="アカウント" component={Account} />
       </Drawer.Navigator>
@@ -42,8 +34,9 @@ function Stacktest(){
   return(
       <Stack.Navigator initialRouteName="Home" >
         <Stack.Screen name="Home" options={{headerShown:false}} component={Homemain} />
-        <Stack.Screen name="Kk" component={Account} />  
+        <Stack.Screen name="Account" component={Account} />  
         <Stack.Screen name="Kupo" component={Kupo} />  
+        <Stack.Screen name="SignUpPage" component={SignUpPage} />  
       </Stack.Navigator> 
   );
 }
@@ -184,4 +177,140 @@ export const Order = ({ type, name, color ,size = 24,}:any) => {
 
 
 
+// import React, {useEffect, useState} from 'react';
+// import {StyleSheet,View,Text,Button, TouchableOpacity, FlatList,} from 'react-native';
+// import { DataStore,Amplify, Auth} from 'aws-amplify';
+// import awsconfig from './aws-exports';
+// import { Contact } from './models';
+// import '@azure/core-asynciterator-polyfill';
 
+
+// Amplify.configure(awsconfig);
+
+
+
+// export default function App({ updateAuthState }:any) {
+//   const [username, setUsername] = useState('taes60711@gmail.com');
+//   const [password, setPassword] = useState('toto60711');
+//   const [email, setEmail] = useState('taes60711@gmail.com');
+//   const [authCode, setAuthCode] = useState('460832');
+
+//   const [results, SetListData] = useState([])
+
+//   useEffect(() => {
+//     const subscription = DataStore.observe(Contact).subscribe(() => updateData())
+//     return () => {
+//       subscription.unsubscribe()
+//       console.log("useEffect invoked")
+//     }
+//   })
+
+// async function updateData() {
+//   try{
+//     const listdata = await DataStore.query(Contact);
+//     SetListData(listdata as[]);
+//   }
+//   catch(e){
+//     console.log('failed' + e);
+//   }
+// }
+
+// async function  addData(){
+//   try{
+//        await DataStore.save(
+//       new Contact({
+//         "name": "64",
+//         "phone": "53",
+//         "email": "12"
+//       })
+//    ).then(
+//     ()=>console.log('Success')
+//    );
+//   }
+//   catch(e){
+//     console.log('failed' + e);
+//   }
+// }
+
+// async function sakujyouData() {
+//   try{
+//     await DataStore.clear();
+  
+//   }
+//   catch(e){
+//     console.log('failed' + e);
+//   }
+// }
+
+//   async function signOut() {
+//     try {
+//       await Auth.signOut();
+//     } catch (error) {
+//       console.log('Error signing out: ', error);
+//     }
+//   }
+//   async function signIn() {
+//     try {
+//       await Auth.signIn(username, password);
+//       console.log('✅ Success');
+//     } catch (error) {
+//       console.log('❌ Error signing in...', error);
+//     }
+//   }
+
+//   async function signUp() {
+//     try {
+//       await Auth.signUp({ username, password, attributes: { email } });
+//       console.log('✅ Sign-up Confirmed');
+
+//     } catch (error) {
+//       console.log('❌ Error signing up...', error);
+//     }
+//   }
+
+//   async function confirmSignUp() {
+//     try {
+//       await Auth.confirmSignUp(username, authCode);
+//       console.log('✅ Code confirmed');
+
+//     } catch (error) {
+//       console.log(
+//         '❌ Verification code does not match. Please enter a valid verification code.');
+//     }
+//   }
+
+//   return (
+//     <View style={styles.container}>
+//       <View style={{height:100}}></View>
+
+//       <Text>💙 + 💛 = React Native + Amplify </Text>
+//       <Button title="Sign In" color="tomato" onPress={signIn} />
+//       <Button title="Sign Out" color="tomato" onPress={signOut} />
+//       <TouchableOpacity onPress={addData}>
+//           <View style={{width:100,height:40,backgroundColor:'red'}}/>
+//       </TouchableOpacity>
+
+//       <TouchableOpacity onPress={sakujyouData}>
+//           <View style={{width:100,height:40,backgroundColor:'black'}}/>
+//       </TouchableOpacity>
+
+//       <FlatList data={results} renderItem={(
+//         {item}) => <Text>{item['email']}</Text>
+//       }></FlatList>
+
+//     </View>
+//   );
+// }
+
+
+
+
+
+
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     justifyContent:'center',
+//     alignItems: 'center'
+//   },
+// });
